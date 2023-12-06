@@ -17,27 +17,56 @@ function App() {
   const [mode , setMode] = useState('light');//state variable which shows whether dark mode is enabled or not
   const [alert , setAlert] = useState(null);//alert ek object h , set alert ek function hai jo alert messgae ko set krega
   
-  const toggleMode = ()=>{
-    if(mode === 'light')
-    {
-        setMode('dark');
-      document.body.style.backgroundColor = '#043070';
-      showAlert("Dark mode has been enabled","success");
-      document.title = "TextUtils-Dark Mode";
-      /*setInterval(()=>{
-        document.title = "TextUtils is Amazing";
-      },2000);
-      setInterval(()=>{
-        document.title = " Install TextUtils now";
-      },1500);*/
-    }
-    else
-    { 
-      setMode('light');
-      document.body.style.backgroundColor = 'white';
-      showAlert("Light mode has been enabled","success");
-      document.title = "TextUtils-Light Mode";
-    }
+  // const toggleMode = ()=>{
+  //   if(mode === 'light')
+  //   {
+  //       setMode('dark');
+  //     document.body.style.backgroundColor = '#043070';
+  //     showAlert("Dark mode has been enabled","success");
+  //     // document.title = "TextUtils-Dark Mode";
+  //     /*setInterval(()=>{
+  //       document.title = "TextUtils is Amazing";
+  //     },2000);
+  //     setInterval(()=>{
+  //       document.title = " Install TextUtils now";
+  //     },1500);*/
+  //   }
+  //   else
+  //   { 
+  //     setMode('light');
+  //     document.body.style.backgroundColor = 'white';
+  //     showAlert("Light mode has been enabled","success");
+  //     // document.title = "TextUtils-Light Mode";
+  //   }
+  // }
+
+  const removeBodyClasses=()=>{
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-dark')
+    document.body.classList.remove('bg-primary')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-warning')
+    document.body.classList.remove('bg-success')
+    
+  }
+
+  const toggleMode = (cls)=> {
+    removeBodyClasses()
+    console.log(cls)
+    document.body.classList.add('bg-'+cls)
+    // if(mode === 'light')
+    // {
+    //     setMode('dark');
+    //   document.body.style.backgroundColor = '#043070';
+    //   showAlert("Dark mode has been enabled","success");
+    // }
+    // else
+    // { 
+    //   setMode('light');
+    //   document.body.style.backgroundColor = 'white';
+    //   showAlert("Light mode has been enabled","success");
+    //   // document.title = "TextUtils-Light Mode";
+    // }
   }
 
   const showAlert = (message,type)=>{ //it is a function to show alert msg on our screen
@@ -63,8 +92,8 @@ function App() {
             islyee exact likhna zruri h
             /users --> Component 1
             /users/home --> omponent 2 */}
-            <Route exact path="/about" element={<About mode = {mode}/>}/> 
-            <Route exact path="/" element={<TextForm showAlert = {showAlert} heading="Enter the text to analyze below" mode = {mode} toggleMode = {toggleMode}/> }/>  
+            <Route exact path="/about" element={<About />}/> 
+            <Route exact path="/" element={<TextForm showAlert = {showAlert} heading="Try TextUtils - Word counter , character counter , remove extra spaces " mode = {mode} toggleMode = {toggleMode}/> }/>  
             {/* <TextForm showAlert = {showAlert} heading="Enter the text to analyze below" mode = {mode} toggleMode = {toggleMode}/>  */}
         </Routes>
         </div>  

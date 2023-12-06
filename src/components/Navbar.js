@@ -39,21 +39,19 @@ export default function Navbar(props) {
               </Link>
             </li>
           </ul>
-          {/* <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-primary" type="submit">
-              Search
-            </button>
-          </form> */}
-          <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
-            <input className="form-check-input" type="checkbox" onClick = {props.toggleMode} role="switch" id="flexSwitchCheckDefault"/>
-            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode==='light'?'dark':'light'} Mode</label>
+          <div className="d-flex">
+            <div className="bg-primary rounded mx-2" style={{height:'20px', width:'20px' ,cursor:'pointer',border:'1px solid black'}} onClick={()=>{props.toggleMode('primary')}}></div>
+            <div className="bg-danger rounded mx-2" style={{height:'20px', width:'20px' ,cursor:'pointer',border:'1px solid black'}} onClick={()=>{props.toggleMode('danger')}}></div>
+            <div className="bg-success rounded mx-2" style={{height:'20px', width:'20px' ,cursor:'pointer',border:'1px solid black'}} onClick={()=>{props.toggleMode('success')}}></div>
+            <div className="bg-warning rounded mx-2" style={{height:'20px', width:'20px' ,cursor:'pointer',border:'1px solid black'}} onClick={()=>{props.toggleMode('warning')}}></div>
+            <div className="bg-light rounded mx-2" style={{height:'20px', width:'20px' ,cursor:'pointer',border:'1px solid black'}} onClick={()=>{props.toggleMode('light')}}></div>
+            <div className="bg-dark rounded mx-2" style={{height:'20px', width:'20px' ,cursor:'pointer',border:'1px solid white'}} onClick={()=>{props.toggleMode('dark')}}></div>
           </div>
+          {/* <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+            <input className="form-check-input" type="checkbox" onClick={()=>{props.toggleMode(null)}} role="switch" id="flexSwitchCheckDefault"/>
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Toggle Mode</label>
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode==='light'?'dark':'light'} Mode</label>
+          </div> */}
         </div>
       </div>
     </nav>
