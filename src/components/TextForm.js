@@ -57,19 +57,20 @@ export default function TextForm(props) {
         <h1 >{props.heading}</h1>
         <div className="mb-3">
         {/* <label for="myBox" className="form-label">{props.heading}</label> */}
-        <textarea className="form-control" value = {text} onChange={handleOnChange} style={{backgroundColor:props.mode==='light'?'white':'#043070' , color:props.mode==='dark'?'white':'black'}} id="myBox" rows="8"></textarea>
+        <textarea className="form-control" value = {text} onChange={handleOnChange} style={{backgroundColor:props.mode==='light'?'white':'rgb(45 ,107 ,198)' , color:props.mode==='dark'?'white':'black'}} id="myBox" rows="8"></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
-        <button className="btn btn-primary mx-2" onClick={handleSummClick}>summarize text</button>
-        <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear Text</button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>copy Text</button>
-        <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to Uppercase</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>Convert to Lowercase</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleSummClick}>summarize text</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleClearClick}>Clear Text</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleCopy}>copy Text</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleLineClick}>Remove Extra Spaces</button>
     </div>
     <div className="container my-3" style={{color:props.mode==='dark'?'white':'black'}}>
       <h2>Your text summary</h2>
-      <p>{text.split(" ").length} words and {text.length} characters</p>
-      <p>{0.008 * text.split(" ").length} time taken to read the text</p>
+      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+      <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} time taken to read the text</p>
       <h2>Preview</h2>
       <p>{text.length>0?text:"Enter something in the textbox above to preview it here!!"}</p>
     </div>
