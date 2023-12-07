@@ -31,14 +31,14 @@ export default function About(props) {
     // }
     let myStyle = {
         //js object
-        color:props.mode ==='dark'?'white':'rgb(28,101,164)',
-        backgroundColor: props.mode ==='dark'?'rgb(28,101,164)':'white',
+        color:props.mode ==='bg-dark'?'white':'black',
+        backgroundColor: props.mode ==='dark'?'black':'white',
         border:'2px solid',
-        borderColor:props.mode ==='dark'?'white':'rgb(28,101,164)'
+        borderColor:props.mode ==='dark'?'white':'black'
     }
   return (
     <div className='container'>
-        <h1 className='my-3' style = {{color:props.mode ==='dark'?'white':'rgb(28,101,164)'}}>About Us</h1>
+        <h1 className='my-3'style = {{color:props.mode ==='dark'?'white':'black'}} >About Us</h1>
         <div className="accordion" id="accordionExample">
             <div className="accordion-item">
                 <h2 className="accordion-header">

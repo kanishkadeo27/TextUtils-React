@@ -49,24 +49,10 @@ function App() {
     document.body.classList.remove('bg-success')
     
   }
-
   const toggleMode = (cls)=> {
     removeBodyClasses()
     console.log(cls)
     document.body.classList.add('bg-'+cls)
-    // if(mode === 'light')
-    // {
-    //     setMode('dark');
-    //   document.body.style.backgroundColor = '#043070';
-    //   showAlert("Dark mode has been enabled","success");
-    // }
-    // else
-    // { 
-    //   setMode('light');
-    //   document.body.style.backgroundColor = 'white';
-    //   showAlert("Light mode has been enabled","success");
-    //   // document.title = "TextUtils-Light Mode";
-    // }
   }
 
   const showAlert = (message,type)=>{ //it is a function to show alert msg on our screen
